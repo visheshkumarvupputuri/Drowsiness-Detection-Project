@@ -1,0 +1,22 @@
+
+good afternoon everyone
+myname...
+batch no 15
+my partner ...
+our project is about drowsiness detection with open cv
+
+In recent years, driver drowsiness has been one of the major causes of road accidents and can lead to severe physical injuries, deaths and significant economic losses.
+
+Passenger security is that the main concern of the vehicles designers where most of the accidents are caused. To supply better security for saving lives of passengers bags are designed, but this method is beneficial after accident. And also various features have been add like rear view camera, sensors for alerting when any object is near to vehcile. But main problem remains we see many accidents happening and lots of them are losing their lives.
+
+OpenCV (Open Source Computer Vision) is a library of programming functions mainly aimed at real-time computer vision. It is mainly used to do all the operation related to Images.
+
+
+sleepy driving can be deadly
+
+ There are two methods for drowsiness detection. The first one is intrusive methods and the second one is non-intrusive methods. The intrusive methods include measurement of heartbeat rate, mind wave monitoring etc. It is most accurate, but it is not realistic, because sensing electrodes would have to be attached directly onto the users body, and hence it would be annoying and distracting the user. while the non-intrusive methods include the yawn detection, eye closure, eye blinking rate, head pose etc. It is realistic because it does not irritate the user while driving because no sensing electrodes would be attached to users body.
+
+view point
+
+During this project we are using OpenCV library and giving input as user live video and training data to detect if person in video is closing eyes or showing any symptoms of drowsiness. It will verify with trained data and detect drowsiness and lift alarm which can alert driver
+

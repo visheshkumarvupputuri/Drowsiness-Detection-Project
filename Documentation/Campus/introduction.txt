@@ -1,0 +1,62 @@
+1.abstract
+The new way of security system which can be discussed during this project is predicated on machine learning and AI. Passenger security is that the main concern of the vehicles designers where most of the accidents are caused thanks to drowsiness and fatigue driving so as to supply better security for saving lives of passengers bag are designed but this method is beneficial after accident is accord. But main problem remains we see many accidents happening and lots of them are losing their lives. during this project we are using openCV library for image processing and giving input as user live video and training data to detect if person in video is closing eyes or showing any symptoms of drowsiness and fatigue then application will verify with trained data and detect drowsiness and lift alarm which can alert driver
+
+2.introduction
+Driver fatigue could even be an enormous believe an outsized number of auto accidents. the event of technologies for detecting or preventing drowsiness at the wheel could even be a significant challenge within the world of accident avoidance systems. methods got to be developed for counteracting its affects. the most target are becoming to be placed on designing a system which may accurately monitor the open or closed state of the driver’s eyes in real-time. By observing the eyes, it's accepted that the side effects of driver weariness are frequently recognized early enough to avoid a car accident. Detection of fatigue involves the observation of eye movements and blink patterns during a sequence of images of a face. Initially, we decided to travel about detecting blink patterns using python the algorithm used was as follows. First, we input the facial image employing a webcam. the absolute best and sides of the face were detected to narrow down the earth where the eyes exist. Using the edges of the face, the center of the face was found which can be used as a reference when computing the left and right eyes. Moving down from the absolute best of the face, horizontal averages of the face area were calculated. Large changes within the averages were wont to define the attention area. There was little change within the horizontal average when the eyes were closed which was wont to detect a blink. However, python had some serious limitations. The processing capacities required by python were very high. python was capable of processing only 4-5 frames per second. On a system with a coffee RAM this was even lower. As we all know an eye fixed blink could even be a matter of milliseconds. Also, a drivers head movements are often pretty fast. Though the MATLAB program designed by us detected an eye fixed blink, the performance was found severely wanting. this is often where OpenCV came in. it's designed for computational efficiency and with a robust concentrate on real time applications. It helps to form sophisticated vision applications quickly and simply. we've used the Haartraining applications in OpenCV to detect the face and eyes. This creates a classifier given a gaggle of positive and negative samples. The steps were as follows: - Gather a knowledge set of face and eye. These should be stored in one or more directories indexed by a document. many high-quality data is required for the classifier to figure well. The utility application createsamples() is employed to form a vector file. Using this file, we'll repeat the training procedure. The Viola Jones cascade decides whether or not the thing during an image is analogous to the training set. Any image that doesn’t contain the thing of interest are often became negative sample. So on determine 3 any object it's required to wish a sample of negative background image. of these negative images are put in one file then it’s indexed. Training of the image is completed using boosting Each classifier within the group could even be a weak classifier. These weak classifiers are typically composed of 1 variable decision tree called stumps. Between preparing every classifier individually, the information focuses are reweighted so as that more consideration is paid to the data focuses where mistakes were made. This process continues until the entire error over the dataset arising from the combined weighted vote of the choice trees falls below a selected threshold. This algorithm is effective when an outsized number of coaching data are available. So, we used the training objects method to make our own haarclassifier .xml files. Training them could even be a time intensive process. Finally, face.xml and haarcascade-eye.xml files are created. These xml files are directly used for object detection Haarcascade-eye.xml is meant just for open eyes. When a blink lasts for quite 5 frames, the drive is judged to be drowsy and an alarm is sounded.
+
+3.literaure review
+3.1.existing systems
+There is various methods like detecting objects which are almost vehicle and front and rear cameras for detecting vehicles approaching almost vehicle and bag system which may save lives after accident is accorded.
+3.2.disadvantages of existing system
+Most of the prevailing systems use external factors and inform user about problem and save user after accident is accord but from research most of the accidents are thanks to faults in user like drowsiness, sleeping while driving.
+3.3.proposed system
+To affect this problem and supply an efficient system a drowsiness detection system are often developed which may be placed inside any vehicle which can take live video of river as input and compare with training data and if driver is showing any symptoms of drowsiness system will automatically detect and lift alarm which can alert driver and other passengers.
+3.4.advantages of proposed system
+This method will detect problem before any problem accord and inform driver and other passengers by raising alarm in this OpenCV based machine learning techniques are used for automatic detection of drowsiness.
+
+4.algorithm
+Blink detection can be estimated by measuring EAR (Eye aspect Ratio) using OPENCV functions and DLIB’s pre trained Neural network-based prediction and detector function. EAR can be measured from eye coordinates returned from OPENCV using EAR formula. Unexpected plunge in EAR esteem against a set edge can be utilized for flicker location and microsleep recognition.
+4.1.
+Each eye is represented by 6 (x, y)-coordinates in landmarks retuned Dlib predictor function, starting at the left-corner of the eye (as if you were looking at the person), and afterward working clockwise around the rest of the district. There is a connection between the width and the stature of these directions. Creator at that point infer a condition that mirrors this connection called the eye angle proportion (EAR). 
+
+EAR 
+
+Where p1, p2, ..., p6 are 2D facial landmark locations. The numerator of this condition registers the separation between the vertical eye milestones while the denominator processes the separation between even eye tourist spots, weighting the denominator suitably since there is just one lot of flat focuses however two arrangements of vertical focuses. the eye angle proportion is roughly consistent while the eye is open, yet will quickly tumble to zero when a squint is occurring. At the point when the individual flickers the eye perspective proportion diminishes significantly, moving toward zero. Eye perspective proportion is steady, at that point quickly drops near zero, at that point increments once more, showing a solitary squint has occurred. Python Function for computing EAR.
+
+Def
+eye_aspect_ratio(self,eye):
+A = dist.euclidean(eye[1],eye[5])
+B = dist.euclidean(eye[2],eye[4])
+C = dist.euclidean(eye[0],eye[3])
+ear = (A + B) / (2.0 * C)
+return ear
+
+Algorithm for detection of Blinks and Microsleep
+
+if ear < Threshold: # EAR
+Threshold
+COUNTER += 1
+if ear < Threshold:
+DBAR+=10 if ear>
+Threshold: DBAR=0
+if COUNTER > 2: # Blink
+Detection
+if ear > Threshold:
+TOTAL +=1
+COUNTER=0
+if DBAR>TDBAR: # Microsleep Detection
+DEVENT+=1
+
+In the event that regardless EAR drops lower than set limit and stays for at any rate 1 seconds it is distinguished as flicker and COUNTER stores estimation of squint no. Assuming further, EAR remains lower than limit for in excess of 3 it is considered as microsleep and will be shown on languor scale and DEVENT variable stores no of sluggishness occasions. Legitimate rationale to stay away from bogus flicker identification is execute by creator.
+
+
+
+5.result
+It applies facial landmark localization to extract eye regions from the face. Compute the EAR and
+sound an alarm if eyes have been closed for a sufficiently long enough time as shown in figure 3
+
+6.conclusion
+In this manner, we've effectively planned a model tiredness location framework utilizing OpenCV programming and Haar Classifiers.
+future scope
+The framework so created was effectively tried, its confinements distinguished and a likely arrangement of activity created. In the real time driver fatigue detection system, it's required to hamper a vehicle automatically when fatigue level crosses a particular limit. rather than threshold drowsiness level it's suggested to style endless scale driver fatigue detection system. It monitors the extent of drowsiness continuously and when this level exceeds a particular value a sign is generated which controls the hydraulic braking system of the vehicle.
+
