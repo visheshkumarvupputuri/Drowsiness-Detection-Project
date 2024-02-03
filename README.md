@@ -1,2 +1,2 @@
-# Drowsiness-Project
+# Drowsiness-Detection-Project
 Major Project
